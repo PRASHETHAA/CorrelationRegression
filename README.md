@@ -1,4 +1,6 @@
-# Correlation and Regression for Data Analysis
+## EX NO:04
+## DATE:11.5.22
+# <p align="center">Correlation and Regression for Data Analysis
 # Aim : 
 
 To analyse given data using  coeffificient of correlation and regression line.
@@ -20,43 +22,61 @@ If y represents the dependent variable and x the independent variable, this rela
 ![image](https://user-images.githubusercontent.com/104613195/168225866-ac8f6610-bdc3-4ac2-a24e-2b24ba08e189.png)
 
 # Program
-## Developed By: H.Dhayanitha
-## Register Number: 212220230010
+
+# Developed by:
+# Register Number:212220230036
+# Name:PRASHETHAA R
 ```
-import math
 import numpy as np
+import math
 import matplotlib.pyplot as plt
-x=[25, 28, 35, 32, 31, 36, 29, 38, 34, 32]
-y=[43, 46, 49, 41, 36, 32, 31, 30, 33, 39]
-sx=0
-sy=0
-sxy=0
-sx2=0
-sy2=0
+x=[25,28,35,32,31,36,29,38,34,32]
+y=[43,46,49,41,36,32,31,30,33,39]
+
+Sx=0
+Sy=0
+Sxy=0
+Sx2=0
+Sy2=0
+
+
 for i in range(0,10):
-    sx=sx+x[i]
-    sy=sy+y[i]
-    sxy=sxy+x[i]*y[i]
-    sx2=sx2+x[i]**2
-    sy2=sy2+y[i]**2
-    N=10
-r=(N*sxy-sx*sy)/(math.sqrt(N*sx2-sx**2)*math.sqrt(N*sy2-sy**2))
+    Sx=Sx+x[i]
+    Sy=Sy+y[i]
+    Sxy=Sxy+x[i]*y[i]
+    Sx2=Sx2+x[i]**2
+    Sy2=Sy2+y[i]**2
+    
+
+N=10
+r=(N*Sxy-Sx*Sy)/(math.sqrt(N*Sx2-Sx*2)*math.sqrt(N*Sy2-Sy*2))
 print("The Correlation Coefficient is %0.3f"%r)
 
-byx=(N*sxy-sx*sy)/(N*sx2-sx**2)
-xmean=sx/N
-ymean=sy/N
-print("The regression line Y on X is ::: Y=%0.3f %0.3f (X- %0.3f)"% (ymean,byx,xmean))
-plt.scatter(x,y)
-def Reg(x):
-    return ymean + byx*(x-xmean)
-x=np.linspace(20,40,51)
-y1=Reg(x)
-plt.plot(x,y1,'r')
-plt.xlabel('x-data')
-plt.ylabel('y-data')
-```
-# Results and Output : 
-![mt1](https://user-images.githubusercontent.com/75235032/170188208-b8cd6711-732d-4238-a5c9-d7cb02f24713.jpg)
+byx=(N*Sxy-Sx*Sy)/(N*Sx2-Sx**2)
+xmean=Sx/N
+ymean=Sy/N
+print("The regression line Y on X is ::: Y = 0 %0.3f %0.3f (X - %0.3f)"%(ymean,byx,xmean))
 
-Thus the analyzation of the given data using coeffificient of correlation and regression line has been successfully implemented.
+plt.plot(x,y,'o')
+
+x=np.linspace(20,40,51)
+
+def f(x):
+    return ymean+byx*(x-xmean)
+
+y=f(x)
+plt.plot(x,y,'r')
+plt.title("Fitting Regression Line")
+plt.xlabel("X data")
+plt.ylabel("Y data")
+plt.legend(['Data points','Regression line'])
+plt.show()
+```
+
+
+# Output : 
+![image](https://user-images.githubusercontent.com/75235090/170188627-32641462-0cac-459c-8632-b6f65c2ed3b9.png)
+
+
+# Result
+Hence a program has been implemented to analyse given data using  coeffificient of correlation and regression line.
